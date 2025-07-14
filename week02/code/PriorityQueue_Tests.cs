@@ -9,7 +9,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: The function will create a queue with the follwing values and prioritys: Diogo(2) Sandro(5) Maria Cecília(1) Isis(4) Ana Clara(3) 
     // Expected Result: [Diogo (Pri:2), Sandro (Pri:5), Maria Cecilia (Pri:1), Isis (Pri:4), Ana Clara (Pri:3)]
-    // Defect(s) Found: 
+    // Defect(s) Found: Assert.Fail falhou. Implement the test case and then remove this. 
     public void TestPriorityQueue_1()
     {
         var priorityQueue1 = new PriorityQueue();
@@ -28,7 +28,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: The function will remove the itens with the highest priority and return its value in order
     // Expected Result: Sandro, Isis, Ana Clara, Diogo, Maria Cecilia
-    // Defect(s) Found: 
+    // Defect(s) Found: Assert.Fail falhou. Implement the test case and then remove this. 
     public void TestPriorityQueue_2()
     {
         var priorityQueue2 = new PriorityQueue();
@@ -53,7 +53,7 @@ public class PriorityQueueTests
     // then the function will rmove the item closest to the front of the queue
     // and its value returned.
     // Expected Result: Sandro, Isis, Ana Clara, Diogo, Maria Cecilia
-    // Defect(s) Found: 
+    // Defect(s) Found: Assert.Fail falhou. Implement the test case and then remove this. 
     public void TestPriorityQueue_3()
     {
         var priorityQueue4 = new PriorityQueue();
@@ -75,8 +75,8 @@ public class PriorityQueueTests
 
     [TestMethod]
     // Scenario: If the queue is empty, then an error exception shall be throw
-    // Expected Result: 
-    // Defect(s) Found: 
+    // Expected Result: The queue is empty.
+    // Defect(s) Found: Assert.Fail falhou. Implement the test case and then remove this. 
     public void TestPriorityQueue_4()
     {
         var priorityQueue4 = new PriorityQueue();
