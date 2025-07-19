@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Text.Json;
 
 public static class SetsAndMaps
@@ -21,8 +22,26 @@ public static class SetsAndMaps
     /// <param name="words">An array of 2-character words (lowercase, no duplicates)</param>
     public static string[] FindPairs(string[] words)
     {
-        // TODO Problem 1 - ADD YOUR CODE HERE
-        return [];
+        HashSet<string> pairSet = new HashSet<string>();
+        List<string> pairList = new List<string>();
+
+        foreach (string word in words)
+        {
+            string reverseWord = "" + word[1] + word[0];
+            if (word == reverseWord)
+            {
+                continue;
+            }
+            else if (pairSet.Contains(reverseWord))
+            {
+                pairList.Add($"{word} & {reverseWord}");
+            }
+            else
+            {
+                pairSet.Add(word);
+            }
+        }
+        return pairList.ToArray();
     }
 
     /// <summary>
