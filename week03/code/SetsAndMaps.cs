@@ -93,10 +93,40 @@ public static class SetsAndMaps
     /// </summary>
     public static bool IsAnagram(string word1, string word2)
     {
-        // TODO Problem 3 - ADD YOUR CODE HERE
-        return false;
-    }
+        Dictionary<char, int> dict = new Dictionary<char, int>();
+        string newWord1 = word1.ToLower().Replace(" ", "");
+        string newWord2 = word2.ToLower().Replace(" ", "");
 
+        if (newWord1.Length != newWord2.Length)
+        {
+            return false;
+        }
+
+        for (int i = 0; i < newWord1.Length; i++)
+        {
+            if (dict.ContainsKey(newWord1[i]))
+            {
+                dict[newWord1[i]]++;
+            }
+            else
+            {
+                dict.Add(newWord1[i], 1);
+            }
+        }
+
+        for (int i = 0; i < newWord2.Length; i++)
+        {
+            if (dict.ContainsKey(newWord2[i]) && dict[newWord2[i]] > 0)
+            {
+                dict[newWord2[i]]--;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return true;
+    }
     /// <summary>
     /// This function will read JSON (Javascript Object Notation) data from the 
     /// United States Geological Service (USGS) consisting of earthquake data.
