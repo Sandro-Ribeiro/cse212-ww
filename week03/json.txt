@@ -1,0 +1,58 @@
+{
+    "type":"FeatureCollection",
+    "features":
+    [
+        {
+            "type":"Feature",
+            "properties":
+            {
+                "mag":1.11,
+                "place":"7 km NNW of The Geysers,CA",
+                "time":1753031895090,
+                "updated":1753031990694,
+                "tz":null,
+                "url":"https://earthquake.usgs.gov/earthquakes/eventpage/nc75212577",
+                "detail":"https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/nc75212577.geojson",
+                "felt":null,
+                "cdi":null,
+                "mmi":null,
+                "alert":null,
+                "status":"automatic",
+                "tsunami":0,
+                "sig":19,
+                "net":"nc",
+                "code":"75212577",
+                "ids":",nc75212577,",
+                "sources":",nc,",
+                "types":",nearby-cities,origin,phase-data,",
+                "nst":25,
+                "dmin":0.001267,
+                "rms":0.02,
+                "gap":44,
+                "magType":"md",
+                "type":"earthquake",
+                "title":"M 1.1 - 7 km NNW of The Geysers, CA"
+            },
+
+            "geometry":
+            {
+                "type":"Point",
+                "coordinates":[-122.809669494629,38.8221664428711,2.90000009536743]
+            },
+
+            "id":"nc75212577"
+        }
+    ],
+
+    "bbox":
+    [
+        -178.3624,
+        -46.2992,
+        -1.2400000095367,
+        161.1039,
+        65.9047,
+        620.766
+    ]
+}
+
+
