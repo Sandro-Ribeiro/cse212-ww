@@ -7,7 +7,7 @@ public class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("\n=======================\nIntersection\n=======================\n");
+        Console.WriteLine("\n=======================\nW03 Interview Question\n=======================\n");
 
         // Paths to the text files
         string file1 = "../../week03/interview/class01.txt";
