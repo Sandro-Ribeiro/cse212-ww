@@ -7,8 +7,7 @@ public class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("\n=======================");
-        Console.WriteLine("Executando teste de Interseção a partir do Sandbox");
+        Console.WriteLine("\n=======================\nIntersection\n=======================\n");
 
         // Caminhos para seus arquivos de teste
         string file1 = "../../week03/interview/class01.txt";
@@ -17,10 +16,10 @@ public class Program
         // Chamada ao seu método da classe Interview
         string[] result = Intersection(file1, file2);
 
-        Console.WriteLine("\n--- Interseção Encontrada ---");
+        Console.WriteLine("\n--- Intersection founded ---");
         // Imprime cada item da interseção em uma nova linha
         Console.WriteLine(string.Join("\n", result));
-        Console.WriteLine("--- Fim do Teste ---");
+        Console.WriteLine("--- End of the intersection ---");
     }
 
     public static string[] Intersection(string filename1, string filename2)
