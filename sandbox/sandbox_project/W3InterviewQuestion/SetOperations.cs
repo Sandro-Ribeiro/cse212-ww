@@ -1,4 +1,4 @@
-public class W3InterviewQuestion
+public class SetOperations
 {
     public static void Run()
     {
@@ -85,5 +85,7 @@ public class W3InterviewQuestion
 
         // Converting the resulting HashSet to an Array and returnning the results
         return filesUnion.ToArray();
-    }
+    }    
+        
 }
+
