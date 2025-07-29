@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Globalization;
 
-public class LinkedList : IEnumerable<int>
+public class MyLinkedList : IEnumerable<int>
 {
     private Node? _head;
     private Node? _tail;
@@ -173,6 +173,18 @@ public class LinkedList : IEnumerable<int>
         }
     }
 
+    public int GetHeadData()
+    {
+        if (_head is null)
+        {
+            throw new InvalidOperationException();
+        }
+        else
+        {
+            return _head.Data;
+        }
+    }
+
     /// <summary>
     /// Search for all instances of 'oldValue' and replace the value to 'newValue'.
     /// </summary>
@@ -242,24 +254,3 @@ public class LinkedList : IEnumerable<int>
         return _head is not null && _tail is not null;
     }
 }
-
-public static class IntArrayExtensionMethods
-{
-    public static string AsString(this IEnumerable array)
-    {
-        return "<IEnumerable>{" + string.Join(", ", array.Cast<int>()) + "}";
-    }
-}
-
-public class Node
-{
-    public int Data { get; set; }
-    public Node? Next { get; set; }
-    public Node? Prev { get; set; }
-
-    public Node(int data)
-    {
-        this.Data = data;
-    }
-}
-
