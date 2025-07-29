@@ -1,22 +1,24 @@
 public class MyQueue
 {
-    public void Enqueue()
-    {
+    private readonly MyLinkedList _list = new MyLinkedList();
 
+    public void Enqueue(int num)
+    {
+        _list.InsertTail(num);
     }
 
-    public void Dequeue()
+    public int Dequeue()
     {
-
+        return _list.RemoveHead();
     }
 
-    public void Size()
+    public int Size()
     {
-
+        return _list.GetSize();
     }
 
     public bool IsEmpty()
     {
-        return true;
+        return _list.HeadAndTailAreNull();
     }
 }

@@ -6,6 +6,8 @@ public class MyLinkedList : IEnumerable<int>
     private Node? _head;
     private Node? _tail;
 
+    private int _count = 0;
+
     /// <summary>
     /// Insert a new node at the front (i.e. the head) of the linked list.
     /// </summary>
@@ -26,6 +28,7 @@ public class MyLinkedList : IEnumerable<int>
             _head.Prev = newNode; // Connect the previous head to the new node
             _head = newNode; // Update the head to point to the new node
         }
+        _count++;
     }
 
     /// <summary>
@@ -40,12 +43,13 @@ public class MyLinkedList : IEnumerable<int>
             _head = newNode;
             _tail = newNode;
         }
-        else if(_tail is not null)
+        else if (_tail is not null)
         {
             _tail.Next = newNode;
             newNode.Prev = _tail;
             _tail = newNode;
         }
+        _count++;
     }
 
     /// <summary>
@@ -76,6 +80,7 @@ public class MyLinkedList : IEnumerable<int>
             _head.Next!.Prev = null; // Disconnect the second node from the first node
             _head = _head.Next; // Update the head to point to the second node
         }
+        _count--;
         return data;
     }
 
@@ -94,6 +99,7 @@ public class MyLinkedList : IEnumerable<int>
         {
             _tail.Prev!.Next = null;
             _tail = _tail.Prev;
+            _count--;
         }
     }
 
@@ -125,7 +131,7 @@ public class MyLinkedList : IEnumerable<int>
                     curr.Next!.Prev = newNode; // Connect node after 'value' to the new node
                     curr.Next = newNode; // Connect the node containing 'value' to the new node
                 }
-
+                _count++;
                 return; // We can exit the function after we insert
             }
 
@@ -167,6 +173,7 @@ public class MyLinkedList : IEnumerable<int>
                     curr.Prev!.Next = null;
                     _tail = curr.Prev;
                 }
+                _count--;
                 break;
             }
             curr = curr.Next;
@@ -200,6 +207,11 @@ public class MyLinkedList : IEnumerable<int>
             }
             curr = curr.Next;
         }
+    }
+
+    public int GetSize()
+    {
+        return _count;
     }
 
     /// <summary>
