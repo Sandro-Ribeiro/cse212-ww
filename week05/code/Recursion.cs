@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Reflection.Metadata.Ecma335;
+using System.Runtime.InteropServices;
 using System.Security.AccessControl;
+using Microsoft.VisualStudio.TestPlatform.CoreUtilities.Extensions;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 
 public static class Recursion
@@ -123,7 +125,6 @@ public static class Recursion
         if (s == 0)
             return 1;
 
-        // TODO Start Problem 3
         if (remember is null)
         {
             remember = new Dictionary<int, decimal>();
@@ -157,7 +158,30 @@ public static class Recursion
     /// </summary>
     public static void WildcardBinary(string pattern, List<string> results)
     {
-        // TODO Start Problem 4
+        if (results is null)
+        {
+            results = new List<string>();
+        }
+
+        string newPattern0 = "";
+        string newPattern1 = "";
+
+        for (int i = 0; i < pattern.Length; i++)
+        {
+            if (pattern[i] == '*')
+            {
+                newPattern0 = pattern[i];
+                newPattern1 = newPattern1 + 1;
+                WildcardBinary(newPattern0, results);
+                WildcardBinary(newPattern0, results);
+            }
+            else
+            {
+                newPattern0 = newPattern0 + pattern[i];
+                newPattern1 = newPattern1 + pattern[i];
+            }
+        }
+
     }
 
     /// <summary>
