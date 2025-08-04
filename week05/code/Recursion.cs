@@ -170,7 +170,6 @@ public static class Recursion
         {
             if (pattern[i] == '*')
             {
-                newPattern0 = pattern[i];
                 newPattern1 = newPattern1 + 1;
                 WildcardBinary(newPattern0, results);
                 WildcardBinary(newPattern0, results);
