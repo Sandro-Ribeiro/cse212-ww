@@ -158,29 +158,25 @@ public static class Recursion
     /// </summary>
     public static void WildcardBinary(string pattern, List<string> results)
     {
-        if (results is null)
+        // Check if the pattern contains a wildcard character ('*').
+        if (pattern.Contains('*'))
         {
-            results = new List<string>();
+            // Find the index of the first wildcard character.
+            int index = pattern.IndexOf('*');
+
+            // Create two new patterns by replacing the first wildcard with "1" and "0".
+            string newPattern1 = pattern.Remove(index, 1).Insert(index, "1");
+            string newPattern0 = pattern.Remove(index, 1).Insert(index, "0");
+
+            // Make the recursive calls for the new patterns.
+            WildcardBinary(newPattern1, results);
+            WildcardBinary(newPattern0, results);
         }
-
-        string newPattern0 = "";
-        string newPattern1 = "";
-
-        for (int i = 0; i < pattern.Length; i++)
+        else
         {
-            if (pattern[i] == '*')
-            {
-                newPattern1 = newPattern1 + 1;
-                WildcardBinary(newPattern0, results);
-                WildcardBinary(newPattern0, results);
-            }
-            else
-            {
-                newPattern0 = newPattern0 + pattern[i];
-                newPattern1 = newPattern1 + pattern[i];
-            }
+            // If there is no '*' in the pattern, it's a complete binary string and is added to the results list.
+            results.Add(pattern);
         }
-
     }
 
     /// <summary>
