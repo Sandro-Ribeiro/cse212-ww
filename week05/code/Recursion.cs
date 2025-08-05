@@ -63,16 +63,16 @@ public static class Recursion
                 string rest = letters.Remove(i, 1);
                 PermutationsChoose(results, rest, size, word + letters[i]);
             }
-        }  
+        }
     }
 
     public static long factorial(int n)
     {
         if (n <= 1)
         {
-            return 1;   
+            return 1;
         }
-        return (long)n * factorial(n-1);
+        return (long)n * factorial(n - 1);
     }
 
     /// <summary>
@@ -187,15 +187,60 @@ public static class Recursion
     {
         // If this is the first time running the function, then we need
         // to initialize the currPath list.
-        if (currPath == null) {
+        if (currPath == null)
+        {
             currPath = new List<ValueTuple<int, int>>();
+            currPath.Add((x, y));
         }
-        
-        // currPath.Add((1,2)); // Use this syntax to add to the current path
 
-        // TODO Start Problem 5
-        // ADD CODE HERE
+        if (maze.IsEnd(x, y))
+        {
+            results.Add(currPath.AsString());
+            return;
+        }
 
-        // results.Add(currPath.AsString()); // Use this to add your path to the results array keeping track of complete maze solutions when you find the solution.
+        // Check if path to right is valid.
+        if (maze.IsValidMove(currPath, x + 1, y))
+        {
+            //Moving to right
+            currPath.Add((x + 1, y));
+            SolveMaze(results, maze, x + 1, y, currPath);
+
+            // Remove invalid path
+            currPath.RemoveAt(currPath.Count - 1);
+        }
+
+        // Check if path to left is valid.
+        if (maze.IsValidMove(currPath, x - 1, y))
+        {
+            // Moving to left
+            currPath.Add((x - 1, y));
+            SolveMaze(results, maze, x - 1, y, currPath);
+
+            // Remove invalid path
+            currPath.RemoveAt(currPath.Count - 1);
+        }
+
+        // Check if path to down is valid.
+        if (maze.IsValidMove(currPath, x, y + 1))
+        {
+            // Moving to down
+            currPath.Add((x, y + 1));
+            SolveMaze(results, maze, x, y + 1, currPath);
+
+            // Remove invalid path
+            currPath.RemoveAt(currPath.Count - 1);
+        }
+
+        // Check if path to up is valid.
+        if (maze.IsValidMove(currPath, x, y - 1))
+        {
+            // Moving to up
+            currPath.Add((x, y - 1));
+            SolveMaze(results, maze, x, y - 1, currPath);
+
+            // Remove invalid path
+            currPath.RemoveAt(currPath.Count - 1);
+        }
     }
 }
