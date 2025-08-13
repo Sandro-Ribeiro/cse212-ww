@@ -3,8 +3,8 @@ using System.Globalization;
 
 public class MyLinkedList : IEnumerable<int>
 {
-    private Node? _head;
-    private Node? _tail;
+    private NodeLinkedList? _head;
+    private NodeLinkedList? _tail;
 
     private int _count = 0;
 
@@ -14,7 +14,7 @@ public class MyLinkedList : IEnumerable<int>
     public void InsertHead(int value)
     {
         // Create new node
-        Node newNode = new(value);
+        NodeLinkedList newNode = new NodeLinkedList(value);
         // If the list is empty, then point both head and tail to the new node.
         if (_head is null)
         {
@@ -36,7 +36,7 @@ public class MyLinkedList : IEnumerable<int>
     /// </summary>
     public void InsertTail(int value)
     {
-        Node newNode = new Node(value);
+        NodeLinkedList newNode = new NodeLinkedList(value);
 
         if (_head is null)
         {
@@ -110,7 +110,7 @@ public class MyLinkedList : IEnumerable<int>
     {
         // Search for the node that matches 'value' by starting at the 
         // head of the list.
-        Node? curr = _head;
+        NodeLinkedList? curr = _head;
         while (curr is not null)
         {
             if (curr.Data == value)
@@ -125,7 +125,7 @@ public class MyLinkedList : IEnumerable<int>
                 // new node and reconnect the links to insert.
                 else
                 {
-                    Node newNode = new(newValue);
+                    NodeLinkedList newNode = new NodeLinkedList(newValue);
                     newNode.Prev = curr; // Connect new node to the node containing 'value'
                     newNode.Next = curr.Next; // Connect new node to the node after 'value'
                     curr.Next!.Prev = newNode; // Connect node after 'value' to the new node
@@ -144,7 +144,7 @@ public class MyLinkedList : IEnumerable<int>
     /// </summary>
     public void Remove(int value)
     {
-        Node? curr = _head;
+        NodeLinkedList? curr = _head;
 
         while (curr is not null)
         {
@@ -197,7 +197,7 @@ public class MyLinkedList : IEnumerable<int>
     /// </summary>
     public void Replace(int oldValue, int newValue)
     {
-        Node? curr = _head;
+        NodeLinkedList? curr = _head;
 
         while (curr is not null)
         {
