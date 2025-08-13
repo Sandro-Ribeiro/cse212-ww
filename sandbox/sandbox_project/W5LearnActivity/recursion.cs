@@ -9,6 +9,20 @@ public class Recursion
         return number + sumSequence(number - 1);
     }
 
+    // Interative version of Factorial
+    public static long FactorialWithLoop(int n)
+    {
+        if (n < 0) return 0;
+        if (n <= 1) return 1;
+
+        long result = 1;
+        for (int i = 2; i <= n; i++)
+        {
+            result *= i;
+        }
+        return result;
+    }
+
 
     public int Fib(int n)
     {
